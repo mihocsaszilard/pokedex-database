@@ -1,6 +1,8 @@
-alert('Hello world!');
+//creating the Pokemon database
 
-let favoriteFood = 'Lasagne';
-document.write(favoriteFood);
-favoriteFood = ' '+ 'Bolognese';
-document.write(favoriteFood);
+let pokemonList = [{name: 'Pikachu', height: 0.4, type:'electric'},
+                   {name: 'Charizard', height: 1.7, type:['fire', 'flying']},
+                   {name: 'Onix', height: 8.8, type:['rock', 'ground']},
+                   {name: 'Cubone', height: 0.4, type:'ground'}];
+
+console.log(pokemonList);
