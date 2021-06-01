@@ -1,1 +1,15 @@
+body{
+  height: 100vh;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 22px;
+  background: linear-gradient(to bottom left, #B3A125, #FFDE00);
+  color: #3B4CCA;
+  display: flex;
+  align-self: flex-start;
+  line-height: 1.6;
+  padding: 10%;
+}
 
+#pokemonList.name{
+  color: black;
+}
