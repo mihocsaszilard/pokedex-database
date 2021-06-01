@@ -1,4 +1,4 @@
-body{
+body {
   height: 100vh;
   font-family: 'Ubuntu', sans-serif;
   font-size: 22px;
@@ -10,6 +10,6 @@ body{
   padding: 10%;
 }
 
-#pokemonList.name{
+#pokemonList.name {
   color: black;
 }
