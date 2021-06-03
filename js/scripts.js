@@ -23,9 +23,9 @@ let pokemonRepository = (function() {
     }
   ];
 
-  // function add(pokemon) {
-  //   pokemonList.push(pokemon);
-  // }
+  function add(pokemon) {
+    pokemonList.push(pokemon);
+   }
 
   function addv(pokemon){
     if(typeof pokemon === 'object' && pokemon !== null){
@@ -39,7 +39,7 @@ let pokemonRepository = (function() {
     return pokemonList;
   }
   return {
-    //add: add,
+    add: add,
     addv:addv,
     getAll: getAll
   };
