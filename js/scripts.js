@@ -21,20 +21,13 @@ let pokemonList = [{
   }
 ];
 
-console.log(pokemonList);
+//console.log(pokemonList);
 
 //listing all the pokemons and their hight
-for (let i = 0; i < pokemonList.length; i++) {
-  //this conditional decides if the height is above 5 and if it is than highlights the pokemon
-  if (pokemonList[i].height > 5) {
-    document.write(pokemonList[i].name + ' is ' + pokemonList[i].height + 'm high' + ' - Wow, that\'s big!' + '<br>');
+pokemonList.forEach(function(item) {
+  if (item.height > 5) {
+    document.write(item.name + ' is ' + item.height + 'm high!' + ' - Wow! This is big!' + '<br>');
+  } else {
+    document.write(item.name + ' is ' + item.height + 'm high!' + '<br>');
   }
-  // else if(pokemonList[i].height < 1){
-  //   document.write(pokemonList[i].name + ' is ' + pokemonList[i].height + 'm high' + ' - That\'s little!' + '<br>');
-  // }else{
-  //   document.write(pokemonList[i].name + ' is ' + pokemonList[i].height + 'm high' + ' - Average one.' + '<br>');
-  // }
-  else {
-    document.write(pokemonList[i].name + ' is ' + pokemonList[i].height + 'm high' + '<br>');
-  }
-}
+})
