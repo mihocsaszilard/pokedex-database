@@ -23,20 +23,31 @@ let pokemonRepository = (function() {
     }
   ];
 
-  function add(pokemon) {
-    pokemonList.push(pokemon);
+  // function add(pokemon) {
+  //   pokemonList.push(pokemon);
+  // }
+
+  function addv(pokemon){
+    if(typeof pokemon === 'object' && pokemon !== null){
+      pokemonList.push(pokemon);
+    }else{
+      document.write('The given value is not an object or is null!' + '<br>')
+    }
   }
 
   function getAll() {
     return pokemonList;
   }
   return {
-    add: add,
+    //add: add,
+    addv:addv,
     getAll: getAll
   };
 })();
 
-pokemonRepository.add({
+pokemonRepository.addv();
+
+pokemonRepository.addv({
   name: 'Balbasaur',
   height: 5.7,
   type: ['grass', 'poison']
