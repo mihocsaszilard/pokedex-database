@@ -1,7 +1,7 @@
 //wrapping pokemonList array in an IIFE
-let pokemonRepository = (function() {
+const pokemonRepository = (function() {
   //creating the Pokemon database
-  let pokemonList = [{
+  const pokemonList = [{
       name: 'Pikachu',
       height: 0.4,
       type: 'electric'
@@ -38,6 +38,10 @@ let pokemonRepository = (function() {
   function getAll() {
     return pokemonList;
   }
+
+  const keysNumber = Object.keys(pokemonList).length; //logs the number of elements which is 4
+  console.log(keysNumber);
+
   return {
     add: add,
     addv:addv,
@@ -53,6 +57,8 @@ pokemonRepository.addv({
   type: ['grass', 'poison']
 });
 console.log(pokemonRepository.getAll());
+
+console.log(Object.keys(pokemonRepository.getAll()).length);  //length is 5
 
 //listing all the pokemons and their hight
 pokemonRepository.getAll().forEach(function(item) {
