@@ -23,6 +23,7 @@ const pokemonRepository = (function() {
     }
   ];
 
+  //adding pokemon if it is an object and is not null
   function add(pokemon) {
     if (typeof pokemon === 'object' && pokemon !== null) {
       pokemonList.push(pokemon);
@@ -43,10 +44,23 @@ const pokemonRepository = (function() {
     button.classList.add('pokemon-button');
     listItem.appendChild(button);
     pokemonUl.appendChild(listItem);
+
+    addEventListener(button, pokemon);
+  }
+
+  //add event listener on click to show details
+  function addEventListener(button, pokemon) {
+    button.addEventListener('click', function() {
+      showDetails(pokemon);
+    });
+  }
+
+  function showDetails(pokemon) {
+    console.log(pokemon);
   }
 
   //logs the number of elements which is 4
-  console.log(pokemonList.length);
+  // console.log(pokemonList.length);
 
   return {
     add: add,

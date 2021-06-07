@@ -5,21 +5,19 @@
 body {
   font-family: 'Ubuntu', sans-serif;
   font-size: 22px;
-  color:	#ffcb05;
+  color: #ffcb05;
   line-height: 1.6;
-  background: repeating-linear-gradient(
-    45deg,
-    #013a79,
-  	#013a79 300px,
-    #003a70 300px,
-    #003a70 600px
-  );
+  background: repeating-linear-gradient(45deg,
+      #013a79,
+      #013a79 300px,
+      #003a70 300px,
+      #003a70 600px);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
-.main-title{
+.main-title {
   margin-left: 10%;
   color: #FF0000;
   text-shadow: 1px 3px #990000;
@@ -27,15 +25,15 @@ body {
   margin-right: -8px;
 }
 
-.pokemon-list{
+.pokemon-list {
   list-style-type: none;
   text-align: center;
   padding: 0;
 }
 
-.pokemon-button{
+.pokemon-button {
   height: 30px;
-  color: 	white;
+  color: white;
   cursor: pointer;
   border: none;
   border-radius: 10px;
@@ -46,17 +44,18 @@ body {
 }
 
 .pokemon-button:hover,
-.pokemon-button:active{
+.pokemon-button:active {
   border-radius: 5px;
   background: rgba(255, 255, 255, .2);
 }
 
 @media all and (max-width: 500px) {
-  .main-title{
+  .main-title {
     margin: 0;
     text-align: center;
   }
-  .pokemon-button{
+
+  .pokemon-button {
     font-size: 18px;
     height: 25px;
   }
