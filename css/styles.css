@@ -1,15 +1,63 @@
-body {
-  height: 100vh;
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 22px;
-  background: linear-gradient(to bottom left, #B3A125, #FFDE00);
-  color: #3B4CCA;
-  display: flex;
-  align-self: flex-start;
-  line-height: 1.6;
-  padding: 10%;
+* {
+  box-sizing: border-box;
 }
 
-#pokemonList.name {
-  color: black;
+body {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 22px;
+  color:	#ffcb05;
+  line-height: 1.6;
+  background: repeating-linear-gradient(
+    45deg,
+    #013a79,
+  	#013a79 300px,
+    #003a70 300px,
+    #003a70 600px
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.main-title{
+  margin-left: 10%;
+  color: #FF0000;
+  text-shadow: 1px 3px #990000;
+  border-bottom: 2px solid #990000;
+  margin-right: -8px;
+}
+
+.pokemon-list{
+  list-style-type: none;
+  text-align: center;
+  padding: 0;
+}
+
+.pokemon-button{
+  height: 30px;
+  color: 	white;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 20px;
+  background: inherit;
+  transition: all 0.3s ease-in;
+}
+
+.pokemon-button:hover,
+.pokemon-button:active{
+  border-radius: 5px;
+  background: rgba(255, 255, 255, .2);
+}
+
+@media all and (max-width: 500px) {
+  .main-title{
+    margin: 0;
+    text-align: center;
+  }
+  .pokemon-button{
+    font-size: 18px;
+    height: 25px;
+  }
 }
