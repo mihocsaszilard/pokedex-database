@@ -1,34 +1,14 @@
 //wrapping pokemonList array in an IIFE
 const pokemonRepository = (function() {
-  //creating the Pokemon database
-  const pokemonList = [{
-      name: 'Pikachu',
-      height: 0.4,
-      type: 'electric'
-    },
-    {
-      name: 'Charizard',
-      height: 1.7,
-      type: ['fire', 'flying']
-    },
-    {
-      name: 'Onix',
-      height: 8.8,
-      type: ['rock', 'ground']
-    },
-    {
-      name: 'Cubone',
-      height: 0.4,
-      type: 'ground'
-    }
-  ];
+  let pokemonList = [];
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   //adding pokemon if it is an object and is not null
   function add(pokemon) {
-    if (typeof pokemon === 'object' && pokemon !== null) {
+    if (typeof pokemon === 'object' && 'name' in pokemon) {
       pokemonList.push(pokemon);
     } else {
-      document.write('The given value is not an object or is null!' + '<br>')
+      document.write('The Pokemon is not correct' + '<br>')
     }
   }
 
@@ -44,41 +24,68 @@ const pokemonRepository = (function() {
     button.classList.add('pokemon-button');
     listItem.appendChild(button);
     pokemonUl.appendChild(listItem);
-
-    addEventListener(button, pokemon);
-  }
-
-  //add event listener on click to show details
-  function addEventListener(button, pokemon) {
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function(event) {
       showDetails(pokemon);
     });
   }
 
-  function showDetails(pokemon) {
-    console.log(pokemon);
+  function loadList() {
+    return fetch(apiUrl).then(function(response) {
+      return response.json();
+    }).then(function(json) {
+      json.results.forEach(function(item) {
+        let pokemon = {
+          name: item.name,
+          detailsUrl: item.url,
+          heigth: item.heigth
+        };
+        add(pokemon);
+        console.log(pokemon);
+      });
+    }).catch(function(e) {
+      console.error(e);
+    })
   }
 
-  //logs the number of elements which is 4
-  // console.log(pokemonList.length);
+  function loadDetails(pokemon) {
+    let url = pokemon.detailsUrl;
+    return fetch(url).then(function(response) {
+      return response.json();
+    }).then(function(details) {
+      //now we add the details to the pokemon
+      pokemon.imageUrl = details.sprites.front_default;
+      pokemon.heigth = details.heigth;
+      pokemon.types = details.types;
+    }).catch(function(e) {
+      console.error(e);
+    });
+  }
+
+    function showDetails(pokemon) {
+      pokemonRepository.loadDetails(pokemon).then(function() {
+        console.log(pokemon);
+      });
+    }
 
   return {
     add: add,
     getAll: getAll,
-    addListItem: addListItem
+    addListItem: addListItem,
+    loadList: loadList,
+    loadDetails: loadDetails,
+    showDetails: showDetails
   };
 })();
 
-pokemonRepository.add({
-  name: 'Balbasaur',
-  height: 5.7,
-  type: ['grass', 'poison']
+pokemonRepository.loadList().then(function() {
+  //data is loaded!
+  pokemonRepository.getAll().forEach(function(pokemon) {
+    pokemonRepository.addListItem(pokemon);
+  });
 });
-console.log(pokemonRepository.getAll());
 
-console.log(pokemonRepository.getAll().length); //length is 5
 
 //listing all the pokemons and their hight
-pokemonRepository.getAll().forEach(function(item) {
-  pokemonRepository.addListItem(item);
-})
+// pokemonRepository.getAll().forEach(function(item) {
+//   pokemonRepository.addListItem(item);
+// })
