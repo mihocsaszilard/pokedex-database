@@ -13,8 +13,14 @@
 <body>
   <div id="loading"><h1>Loading...</h1></div>
   <h1 class="main-title">Pokédex</h1>
-  <ul class="pokemon-list">
+  <ul class="pokemon-list" id="pokemon-list">
   </ul>
+
+<!--buttons for pagination-->
+  <input type="button" id="first" value="first" onclick="firstPage()">
+  <input type="button" id="previous" value="previous" onclick="previousPage()"/>
+  <input type="button" id="next" value="next" onclick="nextPage()"/>
+  <input type="button" id="last" value="last" onclick="lastPage()"/>
 
   <script src="js/promise-polyfill.js"></script>
   <script src="js/fetch-polyfill.js"></script>
