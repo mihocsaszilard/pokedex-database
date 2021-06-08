@@ -6,8 +6,8 @@ const pokemonRepository = (function() {
   //adding pokemon if it is an object and is not null
   function add(pokemon) {
     if (typeof pokemon === 'object' &&
-    'name' in pokemon &&
-    'height') {
+      'name' in pokemon &&
+      'detailsUrl' in pokemon) {
       pokemonList.push(pokemon);
     } else {
       document.write('The Pokemon is not correct' + '<br>')
@@ -68,21 +68,21 @@ const pokemonRepository = (function() {
     });
   }
 
-    function showDetails(pokemon) {
-      pokemonRepository.loadDetails(pokemon).then(function() {
-        console.log(pokemon);
-      });
-    }
+  function showDetails(pokemon) {
+    pokemonRepository.loadDetails(pokemon).then(function() {
+      console.log(pokemon);
+    });
+  }
 
-    function showLoadingMessage() {
-      document.querySelector('body').style.visibility = 'hidden';
-      document.querySelector('#loading').style.visibility = 'visible';
-    }
+  function showLoadingMessage() {
+    document.querySelector('body').style.visibility = 'hidden';
+    document.querySelector('#loading').style.visibility = 'visible';
+  }
 
-    function hideLoadingMessage() {
-      document.querySelector('body').style.visibility = 'visible';
-      document.querySelector('#loading').style.visibility = 'hidden';
-    }
+  function hideLoadingMessage() {
+    document.querySelector('body').style.visibility = 'visible';
+    document.querySelector('#loading').style.visibility = 'hidden';
+  }
 
   return {
     add: add,
