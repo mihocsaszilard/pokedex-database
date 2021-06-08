@@ -1,7 +1,7 @@
 //wrapping pokemonList array in an IIFE
 const pokemonRepository = (function() {
   let pokemonList = [];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=250';
 
   //adding pokemon if it is an object and is not null
   function add(pokemon) {
@@ -30,9 +30,11 @@ const pokemonRepository = (function() {
   }
 
   function loadList() {
+    showLoadingMessage();
     return fetch(apiUrl).then(function(response) {
       return response.json();
     }).then(function(json) {
+      hideLoadingMessage();
       json.results.forEach(function(item) {
         let pokemon = {
           name: item.name,
@@ -43,20 +45,24 @@ const pokemonRepository = (function() {
         console.log(pokemon);
       });
     }).catch(function(e) {
+      hideLoadingMessage();
       console.error(e);
     })
   }
 
   function loadDetails(pokemon) {
+    showLoadingMessage();
     let url = pokemon.detailsUrl;
     return fetch(url).then(function(response) {
       return response.json();
     }).then(function(details) {
+      hideLoadingMessage();
       //now we add the details to the pokemon
       pokemon.imageUrl = details.sprites.front_default;
       pokemon.heigth = details.heigth;
       pokemon.types = details.types;
     }).catch(function(e) {
+      hideLoadingMessage();
       console.error(e);
     });
   }
@@ -65,6 +71,16 @@ const pokemonRepository = (function() {
       pokemonRepository.loadDetails(pokemon).then(function() {
         console.log(pokemon);
       });
+    }
+
+    function showLoadingMessage() {
+      document.querySelector('body').style.visibility = 'hidden';
+      document.querySelector('#loading').style.visibility = 'visible';
+    }
+
+    function hideLoadingMessage() {
+      document.querySelector('body').style.visibility = 'visible';
+      document.querySelector('#loading').style.visibility = 'hidden';
     }
 
   return {

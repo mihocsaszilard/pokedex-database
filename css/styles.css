@@ -49,6 +49,14 @@ body {
   background: rgba(255, 255, 255, .2);
 }
 
+#loading {
+  position: absolute;
+  padding-top: 25%;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
 @media all and (max-width: 500px) {
   .main-title {
     margin: 0;
