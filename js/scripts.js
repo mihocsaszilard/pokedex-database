@@ -5,7 +5,9 @@ const pokemonRepository = (function() {
 
   //adding pokemon if it is an object and is not null
   function add(pokemon) {
-    if (typeof pokemon === 'object' && 'name' in pokemon) {
+    if (typeof pokemon === 'object' &&
+    'name' in pokemon &&
+    'height') {
       pokemonList.push(pokemon);
     } else {
       document.write('The Pokemon is not correct' + '<br>')
@@ -58,7 +60,7 @@ const pokemonRepository = (function() {
       hideLoadingMessage();
       //now we add the details to the pokemon
       pokemon.imageUrl = details.sprites.front_default;
-      pokemon.heigth = details.heigth;
+      pokemon.height = details.height;
       pokemon.types = details.types;
     }).catch(function(e) {
       hideLoadingMessage();
