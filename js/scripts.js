@@ -1,13 +1,14 @@
 //wrapping pokemonList array in an IIFE
 const pokemonRepository = (function() {
-  let pokemonList = [];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=250';
+  const pokemonList = [];
+  const apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=250';
 
   //adding pokemon if it is an object and is not null
   function add(pokemon) {
     if (typeof pokemon === 'object' &&
       'name' in pokemon &&
-      'detailsUrl' in pokemon) {
+      'detailsUrl' in pokemon
+    ) {
       pokemonList.push(pokemon);
     } else {
       document.write('The Pokemon is not correct' + '<br>')
@@ -19,9 +20,9 @@ const pokemonRepository = (function() {
   }
 
   function addListItem(pokemon) {
-    let pokemonUl = document.querySelector('.pokemon-list');
-    let listItem = document.createElement('li');
-    let button = document.createElement('button');
+    const pokemonUl = document.querySelector('.pokemon-list');
+    const listItem = document.createElement('li');
+    const button = document.createElement('button');
     button.innerText = pokemon.name;
     button.classList.add('pokemon-button');
     listItem.appendChild(button);
@@ -38,7 +39,7 @@ const pokemonRepository = (function() {
     }).then(function(json) {
       hideLoadingMessage();
       json.results.forEach(function(item) {
-        let pokemon = {
+        const pokemon = {
           name: item.name,
           detailsUrl: item.url
         };
@@ -53,7 +54,7 @@ const pokemonRepository = (function() {
 
   function loadDetails(pokemon) {
     showLoadingMessage();
-    let url = pokemon.detailsUrl;
+    const url = pokemon.detailsUrl;
     return fetch(url).then(function(response) {
       return response.json();
     }).then(function(details) {

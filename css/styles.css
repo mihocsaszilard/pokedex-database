@@ -26,9 +26,12 @@ body {
 }
 
 .pokemon-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   list-style-type: none;
   text-align: center;
   padding: 0;
+  margin: 0 7.5%;
 }
 
 .pokemon-button {
@@ -50,11 +53,48 @@ body {
 }
 
 #loading {
-  position: absolute;
-  padding-top: 25%;
-  left: 0;
+  position: fixed;
+  margin-right: 2%;
+  font-size: 12px;
+  top: 0;
   right: 0;
   text-align: center;
+}
+
+@media all and (min-width: 1000px){
+  .pokemon-list {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .pokemon-button {
+    font-size: 28px;
+    height: 35px;
+    margin-top: 25px;
+  }
+}
+
+@media all and (min-width: 750px) and (max-width: 1000px){
+  .pokemon-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .pokemon-button {
+    font-size: 28px;
+    height: 35px;
+    margin-top: 32px;
+  }
+}
+
+@media all and (max-width: 750px) and (min-width: 500px) {
+  .pokemon-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pokemon-button {
+    font-size: 30px;
+    height: 35px;
+    margin-top: 32px;
+  }
 }
 
 @media all and (max-width: 500px) {
@@ -63,8 +103,19 @@ body {
     text-align: center;
   }
 
+  .pokemon-list {
+    grid-template-columns: 1fr;
+  }
+
   .pokemon-button {
-    font-size: 18px;
-    height: 25px;
+    font-size: 36px;
+    height: 45px;
+    margin-top: 32px;
+  }
+
+  #loading {
+    margin-right: 0;
+    top: 0;
+    font-size: 10px;
   }
 }
