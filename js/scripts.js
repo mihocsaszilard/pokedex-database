@@ -165,7 +165,12 @@ pokemonRepository.loadList().then(function() {
   });
 });
 
-//listing all the pokemons and their hight
-// pokemonRepository.getAll().forEach(function(item) {
-//   pokemonRepository.addListItem(item);
-// })
+function darkMode() {
+  const checkBox = document.getElementById('check');
+  const body = document.body;
+  if(checkBox.checked == true) {
+    body.classList.add('dark-mode');
+  }else {
+    body.classList.remove('dark-mode');
+  }
+}

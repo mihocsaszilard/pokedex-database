@@ -36,7 +36,6 @@ body {
 
 .pokemon-button {
   height: 30px;
-  color: white;
   cursor: pointer;
   border: none;
   border-radius: 10px;
@@ -52,6 +51,10 @@ body {
   background: rgba(255, 255, 255, .2);
 }
 
+button{
+  color: inherit;
+}
+
 #loading {
   position: fixed;
   margin-right: 2%;
@@ -60,6 +63,84 @@ body {
   right: 0;
   text-align: center;
 }
+
+.dark-mode{
+  background: repeating-linear-gradient(45deg,
+      #c9b630,
+      #c9b630 300px,
+      #B3A125 300px,
+      #B3A125 600px);
+  color: #003a70;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  left: 10%;
+  display: inline-block;
+  float: left;
+  width: 60px;
+  height: 34px;
+  background-color: #B3A125;
+  box-shadow: 0px 0px 5px #003a70;
+  border-radius: 34px;
+}
+
+.mode-text{
+  display: inline-block;
+  float: left;
+  margin-top: 0;
+  margin-left: 50px;
+}
+
+.switch-container{
+  display: inline-block;
+  margin-left: 15%;
+}
+/* Hide default HTML checkbox */
+.switch input {
+  display: none;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  top: 4px;
+  background-color: #003a70;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
 
 @media all and (min-width: 1000px){
   .pokemon-list {
@@ -105,6 +186,7 @@ body {
 
   .pokemon-list {
     grid-template-columns: 1fr;
+    margin-top: 35px;
   }
 
   .pokemon-button {
@@ -117,5 +199,18 @@ body {
     margin-right: 0;
     top: 0;
     font-size: 10px;
+  }
+
+  .switch {
+    margin-top: 20px;
+  }
+
+  .switch-container{
+    position: absolute;
+    margin-left: 20px;
+  }
+
+  .mode-text{
+    margin-top: 20px;
   }
 }
