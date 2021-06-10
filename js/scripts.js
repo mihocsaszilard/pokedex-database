@@ -52,28 +52,30 @@ const pokemonRepository = (function() {
     })
   }
 
-  function loadDetails(item) {
+  function loadDetails(pokemonList) {
     showLoadingMessage();
-    const url = item.detailsUrl;
+    const url = pokemonList.detailsUrl;
     return fetch(url).then(function(response) {
       return response.json();
     }).then(function(details) {
       hideLoadingMessage();
       //now we add the details to the pokemon
-      item.imageUrl = details.sprites.front_default;
-      item.height = details.height;
-      item.types = details.types;
+      pokemonList.imageUrl = details.sprites.front_default;
+      pokemonList.height = details.height;
+      pokemonList.types = details.types;
     }).catch(function(e) {
       hideLoadingMessage();
       console.error(e);
     });
   }
 
-  function showDetails(pokemon) {
-    pokemonRepository.loadDetails(pokemon).then(function() {
-      console.log(pokemon);
+  function showDetails(item) {
+    pokemonRepository.loadDetails(item).then(function() {
+      console.log(item);
     });
   }
+
+
 
   function showLoadingMessage() {
     document.querySelector('body').style.visibility = 'hidden';
@@ -84,71 +86,6 @@ const pokemonRepository = (function() {
     document.querySelector('body').style.visibility = 'visible';
     document.querySelector('#loading').style.visibility = 'hidden';
   }
-
-
-
-  //Pagination
-  // var list = new Array();
-  // var pageList = new Array();
-  // var currentPage = 1;
-  // var itemPerPage = 20;
-  // var numberOfPages = 10;
-  //
-  //
-  // function getNumberOfPages() {
-  //   return Math.ceil(list.length / itemPerPage);
-  // }
-  //
-  // document.getElementById('next').addEventListener('click', function() {
-  //   currentPage += 1;
-  //   loadList();
-  // });
-  //
-  // document.getElementById('previous').addEventListener('click', function() {
-  //   currentPage -= 1;
-  //   loadList();
-  // });
-  //
-  // document.getElementById('first').addEventListener('click', function() {
-  //   currentPage = 1;
-  //   loadList();
-  // });
-  //
-  // document.getElementById('last').addEventListener('click', function() {
-  //   currentPage = numberOfPages;
-  //   loadList();
-  // });
-  //
-  // function loadTheList() {
-  //   var begin = ((currentPage - 1) * itemPerPage);
-  //   var end = begin + itemPerPage;
-  //
-  //   pageList = list.slice(begin, end);
-  //   drawList(); //draws out our data
-  //   check(); //determines the state of the pagination button
-  // }
-  //
-  // function drawList() {
-  //   document.getElementById('pokemon-list').innerHTML = '';
-  //   for (let r = 0; r < pageList.length; r++) {
-  //     document.getElementById('pokemon-list').innerHTML += pageList[r] + '';
-  //   }
-  // }
-  //
-  // function check() {
-  //   document.getElementById("next").disabled = currentPage == numberOfPages ? true : false;
-  //   document.getElementById("previous").disabled = currentPage == 1 ? true : false;
-  //   document.getElementById("first").disabled = currentPage == 1 ? true : false;
-  //   document.getElementById("last").disabled = currentPage == numberOfPages ? true : false;
-  // }
-  //
-  // function load() {
-  //   loadList();
-  //   loadTheList();
-  // }
-  //
-  // window.onload = load;
-  //pagination end
 
   return {
     add: add,
@@ -176,21 +113,3 @@ function darkMode() {
     body.classList.remove('dark-mode');
   }
 }
-
-// function paginator(pokemonRepository, current_page, item_page_per) {
-//   let page = current_page || 1,
-//   per_page = item_page_per || 10,
-//   offset = (page - 1) * per_page;
-//
-//   paginatedItems = items.slice(offset).slice(0, item_per_page),
-//   total_pages = Math.ceil(items.length / per_page);
-//   return {
-//     page: page,
-//     per_page: per_page,
-//     previous_page: page - 1 ? page - 1 : null,
-//     next_page: (total_pages > page) ? page + 1 : null,
-//     total: items.length,
-//     total_pages: total_pages,
-//     data: paginatedItems
-//   };
-// }
