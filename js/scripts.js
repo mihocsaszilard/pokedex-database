@@ -146,12 +146,11 @@ const pokemonRepository = (function() {
   // document.querySelector('#show-modal').addEventListener('click', () => {
   //   showModal('Modal title', 'Modal text');
 
-  //   window.addEventListener('keydown', (e) => {
-  //     if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-  //       hideModal();
-  //     }
-  //   });
-  // });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+        hideModal();
+      }
+    });
 
   function hideModal() {
     modalContainer.classList.remove('is-visible');
