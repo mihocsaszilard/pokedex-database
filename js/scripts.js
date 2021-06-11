@@ -54,12 +54,12 @@ const pokemonRepository = (function() {
   }
 
   function loadDetails(item) {
-    showLoadingMessage();
+  //  showLoadingMessage();
     const url = item.detailsUrl;
     return fetch(url).then(function(response) {
       return response.json();
     }).then(function(details) {
-      hideLoadingMessage();
+      //hideLoadingMessage();
       //now we add the details to the pokemon
       item.image = details.sprites.front_default;
       item.height = details.height;
