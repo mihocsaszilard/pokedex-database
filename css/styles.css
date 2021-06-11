@@ -17,12 +17,23 @@ body {
   background-attachment: fixed;
 }
 
+p{
+  font-size: 24px;
+}
+
 .main-title {
+  cursor: pointer;
   margin-left: 10%;
   color: #FF0000;
   text-shadow: 1px 3px #990000;
   border-bottom: 2px solid #990000;
   margin-right: -8px;
+  transition: color .3s;
+}
+
+.main-title:hover,
+.main-title:active {
+  color: #ff4242;
 }
 
 .pokemon-list {
@@ -51,7 +62,7 @@ body {
   background: rgba(255, 255, 255, .2);
 }
 
-button{
+button {
   color: inherit;
   border: none;
 }
@@ -65,7 +76,7 @@ button{
   text-align: center;
 }
 
-.dark-mode{
+.dark-mode {
   background: repeating-linear-gradient(45deg,
       #c9b630,
       #c9b630 300px,
@@ -74,7 +85,7 @@ button{
   color: #003a70;
 }
 
-.switch-container{
+.switch-container {
   display: inline-block;
   position: absolute;
   right: 10%;
@@ -94,18 +105,22 @@ button{
   border-radius: 34px;
 }
 
-.mode-text{
+.mode-text {
   display: inline-block;
   margin-top: 0;
-
 }
 
-.mode-text img{
+.mode-text img {
   margin-right: 65px;
   width: 34px;
 }
 
 /* Hide default HTML checkbox */
+
+.switch {
+  cursor: pointer;
+}
+
 .switch input {
   display: none;
   opacity: 0;
@@ -135,22 +150,21 @@ button{
   border-radius: 34px;
 }
 
-input:checked + .slider {
+input:checked+.slider {
   background-color: #2196F3;
 }
 
-input:focus + .slider {
+input:focus+.slider {
   box-shadow: 0 0 1px #2196F3;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
 
 /*---------modal---------*/
-
 #modal-container {
   position: fixed;
   padding: 20px;
@@ -175,25 +189,37 @@ input:checked + .slider:before {
 }
 
 .modal {
+  position: relative;
   margin: auto;
-  margin-top: 20%;
+  margin-top: 10%;
   display: inline-block;
   box-sizing: border-box;
-  background: #fff;
+  background: #fffbeb;
   padding: 15px;
   width: 100%;
   max-width: 700px;
-  text-align: left;
+  text-align: center;
   border-radius: 15px;
+  box-shadow: inset 0px 26px 50px 600px rgba(0, 58, 112, 0.1);
 }
 
 .modal-close {
-  float: right;
+  cursor: pointer;
+  font-size: 26px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
   -webkit-appearance: none;
   border: 0;
   background: none;
   color: #777;
-  text-decoration: underline;
+  text-decoration: none;
+  transition: transform .3s;
+}
+
+.modal-close:hover,
+.modal-close:active {
+  transform: rotate(180deg);
 }
 
 .modal h1 {
@@ -206,10 +232,27 @@ input:checked + .slider:before {
   color: #003a70;
 }
 
+.element-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pokemon-img {
+  width: 30%;
+  height: auto;
+  margin-bottom: 5%;
+  box-shadow: inset 0px 26px 50px 36px rgba(0, 58, 112, 0.1);
+  border-radius: 25px;
+}
+
+.pokemon-height{
+  margin-bottom: 20px !important;
+}
 
 /*-------modal end-------*/
-
-@media all and (min-width: 1000px){
+@media all and (min-width: 1000px) {
   .pokemon-list {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
@@ -221,9 +264,31 @@ input:checked + .slider:before {
   }
 }
 
-@media all and (min-width: 750px) and (max-width: 1000px){
+@media all and (min-width: 750px) and (max-width: 1000px) {
   .pokemon-list {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .modal{
+    max-width: 500px;
+    margin-top: 0;
+  }
+
+  .pokemon-title{
+    margin: 0;
+  }
+
+  .pokemon-img {
+    width: 30%;
+    margin: 0;
+  }
+
+  .pokemon-type{
+    margin: 0;
+  }
+
+  .pokemon-height{
+    margin: 0;
   }
 
   .pokemon-button {
@@ -236,6 +301,27 @@ input:checked + .slider:before {
 @media all and (max-width: 750px) and (min-width: 500px) {
   .pokemon-list {
     grid-template-columns: 1fr 1fr;
+  }
+  .modal{
+    max-width: 500px;
+    margin-top: 0;
+  }
+
+  .pokemon-title{
+    margin: 0;
+  }
+
+  .pokemon-img {
+    width: 30%;
+    margin: 0;
+  }
+
+  .pokemon-type{
+    margin: 0;
+  }
+
+  .pokemon-height{
+    margin: 0;
   }
 
   .pokemon-button {
@@ -256,6 +342,10 @@ input:checked + .slider:before {
     margin-top: 35px;
   }
 
+  .pokemon-img {
+    width: 75%;
+  }
+
   .pokemon-button {
     font-size: 36px;
     height: 45px;
@@ -272,12 +362,12 @@ input:checked + .slider:before {
     margin-top: 20px;
   }
 
-  .switch-container{
-  top: 10%;
-  margin-right: 20px;
+  .switch-container {
+    top: 10%;
+    margin-right: 20px;
   }
 
-  .mode-text{
+  .mode-text {
     margin-top: 20px;
   }
 }
