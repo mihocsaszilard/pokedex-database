@@ -54,12 +54,12 @@ const pokemonRepository = (function() {
   }
 
   function loadDetails(item) {
-  //  showLoadingMessage();
+    showLoadingMessage();
     const url = item.detailsUrl;
     return fetch(url).then(function(response) {
       return response.json();
     }).then(function(details) {
-      //hideLoadingMessage();
+      hideLoadingMessage();
       //now we add the details to the pokemon
       item.image = details.sprites.front_default;
       item.height = details.height;
@@ -82,12 +82,12 @@ const pokemonRepository = (function() {
   }
 
   function showLoadingMessage() {
-    document.querySelector('body').style.visibility = 'hidden';
+    document.querySelector('#pokemon-list').style.visibility = 'visible';
     document.querySelector('#loading').style.visibility = 'visible';
   }
 
   function hideLoadingMessage() {
-    document.querySelector('body').style.visibility = 'visible';
+    document.querySelector('#pokemon-list').style.visibility = 'visible';
     document.querySelector('#loading').style.visibility = 'hidden';
   }
 
