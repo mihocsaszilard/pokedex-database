@@ -82,11 +82,13 @@ const pokemonRepository = (function() {
   }
 
   function showLoadingMessage() {
+    document.querySelector('.main-title').style.visibility = 'visible';
     document.querySelector('#pokemon-list').style.visibility = 'visible';
     document.querySelector('#loading').style.visibility = 'visible';
   }
 
   function hideLoadingMessage() {
+    document.querySelector('.main-title').style.visibility = 'visible';
     document.querySelector('#pokemon-list').style.visibility = 'visible';
     document.querySelector('#loading').style.visibility = 'hidden';
   }
