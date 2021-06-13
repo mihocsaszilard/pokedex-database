@@ -37,6 +37,7 @@ p{
 }
 
 .pokemon-list {
+  cursor: pointer;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 50px 100px;
@@ -49,7 +50,8 @@ p{
 .pokemon-list li {
   display:grid;
   grid-template-rows: 2fr 1fr;
-  box-shadow: inset 0px -50px 50px 10px rgba(250, 0, 0, .1);
+  border-bottom: none;
+  background: linear-gradient(to top right, rgba(255, 203, 5, .1), rgba(0, 58, 112, .2));
   border-radius: 25px;
   transition: all .3s ease-in;
 }
@@ -61,7 +63,6 @@ p{
 }
 
 .list-img {
-  cursor: pointer;
   height: 80px;
   display: block;
   margin-left: auto;
@@ -106,8 +107,7 @@ p{
   border-radius: 15px;
   font-family: inherit;
   font-size: 20px;
-  background: inherit;
-  transition: all .2s ease-in;
+  background: none;
 }
 
 button {
@@ -441,17 +441,35 @@ input:checked+.slider:before {
     font-size: 10px;
   }
 
+  .slider{
+    position: relative;
+    z-index: 11;
+  }
+
   .switch {
     margin-top: 20px;
   }
 
   .switch-container {
     top: 10%;
-    margin-right: 20px;
   }
 
   .mode-text {
     margin-top: 20px;
+    padding-top: 1px;
+  }
+
+  .mode-text img{
+    position: relative;
+    z-index: 10;
+    margin: 0;
+
+    margin-right: 5px;
+    height: 20px;
+  }
+
+  .mode-text img:last-child {
+    margin-left: -20px;
   }
 
   .modal{

@@ -32,10 +32,8 @@ const pokemonRepository = (function() {
     listItem.appendChild(pokemonImg);
     listItem.appendChild(button);
     pokemonUl.appendChild(listItem);
-    button.addEventListener('click', function(event) {
-      showDetails(pokemon);
-    });
-    pokemonImg.addEventListener('click', function(event) {
+
+    listItem.addEventListener('click', function(event) {
       showDetails(pokemon);
     });
   }
