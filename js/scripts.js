@@ -45,8 +45,9 @@ const pokemonRepository = (function() {
     }).then(function(json) {
       hideLoadingMessage();
       json.results.forEach(function(item) {
+        const itemNameCapitalized = item.name.charAt(0).toUpperCase() + item.name.slice(1);
         let pokemon = {
-          name: item.name,
+          name: itemNameCapitalized,
           detailsUrl: item.url
         };
         add(pokemon);
@@ -121,7 +122,9 @@ const pokemonRepository = (function() {
     heightElement.classList.add('pokemon-height');
 
     imgElement.src = item.image;
-    titleElement.innerText = item.name;
+
+    const itemNameCapitalized = item.name.charAt(0).toUpperCase() + item.name.slice(1);
+    titleElement.innerText = itemNameCapitalized;
 
     if(item.type.length === 1){
       typeElement.innerText = 'Type: ' + item.type;
