@@ -43,23 +43,71 @@ p{
   text-align: center;
   padding: 0;
   margin: 0 7.5%;
+  grid-gap: 50px;
+}
+
+.pokemon-list li {
+  display:grid;
+  grid-template-rows: 2fr 1fr;
+  box-shadow: inset 0px -50px 50px 10px rgba(250, 0, 0, .1);
+  border-radius: 25px;
+  transition: all .3s ease-in;
+}
+
+.pokemon-list li:hover,
+.pokemon-list li:active {
+  border-radius: 15px;
+  background: rgba(255, 255, 255, .2);
+}
+
+.list-img {
+  cursor: pointer;
+  height: 80px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  transition: all .3s ease-in;
+}
+
+.list-img:hover,
+.list-img:active {
+  animation: shake 1s infinite;
+}
+
+@keyframes shake {
+  0%{
+    transform: rotate(4deg);
+  }
+  20%{
+    transform: rotate(-5deg);
+  }
+  40%{
+    transform: rotate(15deg) translateX(5px);
+  }
+  60%{
+    transform: rotate(-6deg) translateX(-7px);
+  }
+  80%{
+    transform: rotate(8deg) translateY(-8px);
+  }
+  99.9%{
+    transform: rotate(4deg) translateY(3px);
+  }
 }
 
 .pokemon-button {
+  float:left;
+  clear: left;
   height: 30px;
   cursor: pointer;
+  margin-top: 5px;
   border: none;
-  border-radius: 10px;
+  border-radius: 15px;
   font-family: inherit;
   font-size: 20px;
   background: inherit;
-  transition: all 0.3s ease-in;
-}
-
-.pokemon-button:hover,
-.pokemon-button:active {
-  border-radius: 5px;
-  background: rgba(255, 255, 255, .2);
+  transition: all .2s ease-in;
 }
 
 button {
@@ -260,7 +308,7 @@ input:checked+.slider:before {
   .pokemon-button {
     font-size: 28px;
     height: 35px;
-    margin-top: 25px;
+    margin-top: 5px;
   }
 }
 
@@ -294,7 +342,7 @@ input:checked+.slider:before {
   .pokemon-button {
     font-size: 28px;
     height: 35px;
-    margin-top: 32px;
+    margin-top: 5px;
   }
 }
 
@@ -327,7 +375,7 @@ input:checked+.slider:before {
   .pokemon-button {
     font-size: 30px;
     height: 35px;
-    margin-top: 32px;
+    margin-top: 5px;
   }
 }
 
@@ -349,7 +397,11 @@ input:checked+.slider:before {
   .pokemon-button {
     font-size: 36px;
     height: 45px;
-    margin-top: 32px;
+    margin-top: 5px;
+  }
+
+  .pokemon-list li:first-child{
+    margin-top: 40px;
   }
 
   #loading {

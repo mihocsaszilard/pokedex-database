@@ -23,12 +23,19 @@ const pokemonRepository = (function() {
   function addListItem(pokemon) {
     const pokemonUl = document.querySelector('.pokemon-list');
     const listItem = document.createElement('li');
+    const pokemonImg = document.createElement('img');
+    pokemonImg.classList.add('list-img');
     const button = document.createElement('button');
+    pokemonImg.src = 'img/pokeball.svg';
     button.innerText = pokemon.name;
     button.classList.add('pokemon-button');
+    listItem.appendChild(pokemonImg);
     listItem.appendChild(button);
     pokemonUl.appendChild(listItem);
     button.addEventListener('click', function(event) {
+      showDetails(pokemon);
+    });
+    pokemonImg.addEventListener('click', function(event) {
       showDetails(pokemon);
     });
   }
