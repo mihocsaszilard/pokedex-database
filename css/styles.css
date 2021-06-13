@@ -249,6 +249,16 @@ input:checked+.slider:before {
   text-align: center;
   border-radius: 15px;
   box-shadow: inset 0px 26px 50px 600px rgba(0, 58, 112, 0.1);
+  animation: modal .4s ease-in;
+}
+
+@keyframes modal {
+  0%{
+    transform: translateX(-1500px);
+  }
+  100%{
+    transform: translateX(0px);
+  }
 }
 
 .modal-close {
@@ -260,7 +270,7 @@ input:checked+.slider:before {
   -webkit-appearance: none;
   border: 0;
   background: none;
-  color: #777;
+  color: #013a79;
   text-decoration: none;
   transition: transform .3s;
 }
@@ -321,7 +331,16 @@ input:checked+.slider:before {
 
   .modal{
     max-width: 500px;
-    margin-top: 0;
+    margin-top: 25%;
+  }
+
+  @keyframes modal {
+    0%{
+      transform: translateX(-1200px);
+    }
+    100%{
+      transform: translateX(0px);
+    }
   }
 
   .pokemon-title{
@@ -355,7 +374,16 @@ input:checked+.slider:before {
   }
   .modal{
     max-width: 500px;
-    margin-top: 0;
+    margin-top: 45%;
+  }
+
+  @keyframes modal {
+    0%{
+      transform: translateX(-700px);
+    }
+    100%{
+      transform: translateX(0px);
+    }
   }
 
   .pokemon-title{
@@ -424,5 +452,18 @@ input:checked+.slider:before {
 
   .mode-text {
     margin-top: 20px;
+  }
+
+  .modal{
+    margin-top: 35%;
+  }
+
+  @keyframes modal {
+    0%{
+      transform: translateX(-500px);
+    }
+    100%{
+      transform: translateX(0px);
+    }
   }
 }
