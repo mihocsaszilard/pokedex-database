@@ -54,6 +54,7 @@ p{
   background: linear-gradient(to top right, rgba(255, 203, 5, .1), rgba(0, 58, 112, .2));
   border-radius: 25px;
   transition: all .3s ease-in;
+  box-shadow: 0px 0px 5px rgba(255, 255, 255, .1);
 }
 
 .pokemon-list li:hover,
