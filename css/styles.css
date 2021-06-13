@@ -38,12 +38,12 @@ p{
 
 .pokemon-list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 50px 100px;
   list-style-type: none;
   text-align: center;
   padding: 0;
   margin: 0 7.5%;
-  grid-gap: 50px;
 }
 
 .pokemon-list li {
@@ -300,9 +300,10 @@ input:checked+.slider:before {
 }
 
 /*-------modal end-------*/
-@media all and (min-width: 1000px) {
+@media all and (max-width: 1500px) {
   .pokemon-list {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 50px 100px;
   }
 
   .pokemon-button {
@@ -312,9 +313,10 @@ input:checked+.slider:before {
   }
 }
 
-@media all and (min-width: 750px) and (max-width: 1000px) {
+@media all and (min-width: 750px) and (max-width: 1200px) {
   .pokemon-list {
     grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 50px 75px;
   }
 
   .modal{
@@ -349,6 +351,7 @@ input:checked+.slider:before {
 @media all and (max-width: 750px) and (min-width: 500px) {
   .pokemon-list {
     grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
   }
   .modal{
     max-width: 500px;
