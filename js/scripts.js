@@ -23,6 +23,7 @@ const pokemonRepository = (function() {
   function addListItem(pokemon) {
     const pokemonUl = document.querySelector('.pokemon-list');
     const listItem = document.createElement('li');
+    listItem.classList.add('list-item', 'light-shadow');
     const pokemonImg = document.createElement('img');
     pokemonImg.classList.add('list-img');
     const button = document.createElement('button');
@@ -190,9 +191,21 @@ pokemonRepository.loadList().then(function() {
 function darkMode() {
   const checkBox = document.getElementById('check');
   const body = document.body;
+  const darkLi = document.getElementsByClassName('list-item')[0];
   if (checkBox.checked == true) {
     body.classList.add('dark-mode');
   } else {
     body.classList.remove('dark-mode');
+  }
+
+  const liSum = document.querySelectorAll('pokemon-list').length;
+
+  for(let i = 0; i <= liSum; i++){
+    if (checkBox.checked == true) {
+      darkLi.classList.add('dark-shadow');
+      darkLi.classList.remove('light-shadow');
+    } else {
+      darkLi.classList.add('light-shadow');
+    }
   }
 }
