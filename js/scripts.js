@@ -72,7 +72,8 @@ const pokemonRepository = (function() {
       item.height = details.height;
       //extracting the types & creating an array to hold them
       let pokemonTypes = details.types.map(extract);
-      function extract(subItem){
+
+      function extract(subItem) {
         return subItem.type.name;
       }
       item.type = pokemonTypes;
@@ -127,9 +128,9 @@ const pokemonRepository = (function() {
     const itemNameCapitalized = item.name.charAt(0).toUpperCase() + item.name.slice(1);
     titleElement.innerText = itemNameCapitalized;
 
-    if(item.type.length === 1){
+    if (item.type.length === 1) {
       typeElement.innerText = 'Type: ' + item.type;
-    }else {
+    } else {
       typeElement.innerText = 'Types: ' + item.type;
     }
 
@@ -150,14 +151,14 @@ const pokemonRepository = (function() {
     modalContainer.classList.add('is-visible');
   }
 
-  // document.querySelector('#show-modal').addEventListener('click', () => {
-  //   showModal('Modal title', 'Modal text');
+  //Search
 
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-        hideModal();
-      }
-    });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+      hideModal();
+    }
+  });
 
   function hideModal() {
     modalContainer.classList.remove('is-visible');
@@ -199,12 +200,12 @@ function darkMode() {
   }
 
   const darkLi = document.getElementById('pokemon-list').getElementsByTagName('li');
-    for(let i = 0; i< darkLi.length; i++){
-      if (checkBox.checked == true) {
-        darkLi[i].classList.add('dark-shadow');
-        darkLi[i].classList.remove('light-shadow');
-      } else {
-        darkLi[i].classList.add('light-shadow');
-      }
+  for (let i = 0; i < darkLi.length; i++) {
+    if (checkBox.checked == true) {
+      darkLi[i].classList.add('dark-shadow');
+      darkLi[i].classList.remove('light-shadow');
+    } else {
+      darkLi[i].classList.add('light-shadow');
     }
+  }
 }
