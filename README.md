@@ -1,6 +1,6 @@
 # Pokédex
 
-The application will display a list of data items,  load items from an external API, allowing the user to search for items and to get a detailed view of each individual item on the list.
+The application will display a list of data items,  load items from an external API, allowing the user to get a detailed view of each individual item on the list.
 
 ## Features and Requirements
 
@@ -18,7 +18,6 @@ demand, such as when clicking on a list item.
 * The JavaScript code may be manually formatted.
 * The app must use at least one additional complex UI pattern, such as a modal, for details or
 touch interactions.
-* The app may allow searching for items (e.g., searching for Pokémon).
 * The app must not throw any errors when being used.
 * The app should be deployed to a publicly accessible platform like GitHub Pages (you can
 review how to do this in Intro to Frontend Development's Exercise 10: Code Quality, Testing, &
